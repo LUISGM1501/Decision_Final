@@ -22,7 +22,8 @@ let currentDecision = null; // "A" or "B"
 let originPosition = 0;
 let usedCards = [];
 let gameState = "setup"; // setup | rolling | playing | revealed | finished
-const QUESTION_TIME_LIMIT = 20; // seconds allowed to answer each card
+const DEFAULT_QUESTION_TIME_LIMIT = 20; // fallback seconds to responder
+let questionTimeLimit = DEFAULT_QUESTION_TIME_LIMIT; // configurable per partida
 
 /* ═══════════════════════════════════════════
    MODULE: App
@@ -151,6 +152,20 @@ const Config = {
       errorEl.textContent = `Agregá cartas de tipo: ${missingTypes.join(", ")}.`;
       return;
     }
+
+    const timerInput = document.getElementById("questionTimerSetting");
+    const requestedTime = Number(timerInput ? timerInput.value : null);
+    const sanitizedTime = Math.min(
+      90,
+      Math.max(
+        5,
+        Number.isFinite(requestedTime) && requestedTime > 0
+          ? requestedTime
+          : DEFAULT_QUESTION_TIME_LIMIT,
+      ),
+    );
+    questionTimeLimit = sanitizedTime;
+    if (timerInput) timerInput.value = sanitizedTime;
 
     players = names.map((name, i) => ({
       id: i,
@@ -579,6 +594,7 @@ const Score = {
 const Game = {
   timerId: null,
   timerRemaining: 0,
+  timerTotal: DEFAULT_QUESTION_TIME_LIMIT,
   initBoard() {
     board = [];
     board.push({ tipo: "inicio" });
@@ -673,7 +689,14 @@ const Game = {
 
   startQuestionTimer() {
     this.clearQuestionTimer(false);
-    this.timerRemaining = QUESTION_TIME_LIMIT;
+    const configured = Number(questionTimeLimit);
+    this.timerTotal = Math.max(
+      1,
+      Number.isFinite(configured) && configured > 0
+        ? configured
+        : DEFAULT_QUESTION_TIME_LIMIT,
+    );
+    this.timerRemaining = this.timerTotal;
     const wrapper = document.getElementById("questionTimer");
     if (wrapper) {
       wrapper.style.display = "flex";
@@ -707,11 +730,16 @@ const Game = {
     if (!wrapper || !valueEl || !barEl) return;
     const remaining = Math.max(0, this.timerRemaining);
     valueEl.textContent = `${remaining}s`;
-    const pct = QUESTION_TIME_LIMIT
-      ? Math.max(0, (remaining / QUESTION_TIME_LIMIT) * 100)
-      : 0;
+    const total = Math.max(
+      1,
+      Number(
+        this.timerTotal || questionTimeLimit || DEFAULT_QUESTION_TIME_LIMIT,
+      ),
+    );
+    const pct = Math.max(0, (remaining / total) * 100);
     barEl.style.width = `${pct}%`;
-    wrapper.classList.toggle("danger", remaining <= 5);
+    const dangerThreshold = Math.max(2, Math.min(5, Math.ceil(total * 0.25)));
+    wrapper.classList.toggle("danger", remaining <= dangerThreshold);
   },
 
   handleTimerExpired() {

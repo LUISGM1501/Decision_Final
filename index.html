@@ -201,19 +201,13 @@
                 <div class="game-top-bar">
                     <div class="game-logo">Decisión Final</div>
                     <div class="round-pill">
-                        Ronda <strong id="roundCurrent">1</strong> /
-                        <strong>10</strong>
+                        Turno de: <strong id="currentPlayerName">...</strong>
                     </div>
                 </div>
 
-                <!-- Progress bar -->
-                <div class="progress-track">
-                    <div
-                        id="progressBar"
-                        class="progress-fill"
-                        style="width: 10%"
-                    ></div>
-                    <div id="progressDots" class="progress-dots"></div>
+                <!-- Board Container -->
+                <div class="board-wrapper">
+                    <div id="boardContainer" class="board-container"></div>
                 </div>
 
                 <!-- System message -->
@@ -226,8 +220,15 @@
                 <!-- Situation card -->
                 <div id="situationCard" class="situation-card"></div>
 
-                <!-- Player decision panels -->
-                <div id="playersGrid" class="players-grid"></div>
+                <!-- Dice Panel & Player Turn Info -->
+                <div id="dicePanel" class="dice-panel">
+                    <button id="btnRollDice" class="btn btn-accent btn-lg" onclick="Game.rollDice()">
+                        🎲 Tirar Dado
+                    </button>
+                    <div id="diceResultView" class="dice-result-view" style="display: none;">
+                        <span id="diceResultNumber">?</span>
+                    </div>
+                </div>
 
                 <!-- Action buttons -->
                 <div class="game-actions">

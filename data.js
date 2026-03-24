@@ -289,4 +289,200 @@ const DECK = [
     explicacion:
       "Aceptar retos ambiciosos con equipos capaces puede generar resultados transformadores, aunque implique riesgo.",
   },
+
+  /* ──────────────────────────────────────────
+     NUEVAS CARTAS (16 cartas extra)
+     ────────────────────────────────────────── */
+  {
+    id: 17,
+    tipo: "oportunidad",
+    situacion: "Un medio importante quiere hacerte una entrevista exclusiva mañana, pero tienes una reunión clave con inversionistas.",
+    opcionA: "Reprogramar inversionistas para tomar la entrevista.",
+    opcionB: "Rechazar la entrevista y asistir a la reunión.",
+    resultadoA: "La entrevista genera una ola de nuevos usuarios y atrae a más y mejores inversionistas luego.",
+    resultadoB: "Aseguras la inversión, pero pierdes una exposición gratuita invaluable.",
+    puntosA: 2,
+    puntosB: 1,
+    explicacion: "A veces la exposición masiva acelera el crecimiento orgánico más rápido que el capital tradicional."
+  },
+  {
+    id: 18,
+    tipo: "oportunidad",
+    situacion: "Un proveedor te ofrece 40% de descuento si compras inventario para todo el año por adelantado.",
+    opcionA: "Aceptar el trato y endeudarte para comprar.",
+    opcionB: "Comprar solo lo necesario al precio regular.",
+    resultadoA: "Te quedas sin flujo de caja y la demanda baja. El inventario se estanca.",
+    resultadoB: "Mantienes agilidad financiera. Fue más seguro y conveniente.",
+    puntosA: -1,
+    puntosB: 2,
+    explicacion: "Comprometer todo el flujo de caja por descuentos anula tu capacidad de maniobra frente a imprevistos."
+  },
+  { 
+    id: 19, 
+    tipo: "oportunidad", 
+    situacion: "Un cliente corporativo grande pide exclusividad de tu producto por 2 años.", 
+    opcionA: "Aceptar la exclusividad.", 
+    opcionB: "Rechazarla y mantener libertad de mercado.", 
+    resultadoA: "El cliente te exprime y no puedes crecer en otras áreas.", 
+    resultadoB: "Pierdes ese gran cliente, pero diversificas y reduces el riesgo.", 
+    puntosA: 0, 
+    puntosB: 2, 
+    explicacion: "La exclusividad temprana te vuelve dependiente de un solo cliente, aumentando el riesgo general." 
+  },
+  { 
+    id: 20, 
+    tipo: "oportunidad", 
+    situacion: "Detectas una tendencia viral en TikTok donde encaja perfecto tu servicio.", 
+    opcionA: "Lanzar campaña de inmediato subiéndote a la tendencia.", 
+    opcionB: "Analizar si encaja con la imagen formal de tu marca por 2 semanas.", 
+    resultadoA: "La campaña es ágil y traes muchas ventas sin dañar la marca.", 
+    resultadoB: "Cuando terminas de analizar, la tendencia ya murió.", 
+    puntosA: 2, 
+    puntosB: 0, 
+    explicacion: "Las tendencias virales requieren agilidad pura. La lentitud te deja fuera." 
+  },
+  { 
+    id: 21, 
+    tipo: "crisis", 
+    situacion: "Hackean tu base de datos y filtran correos de usuarios.", 
+    opcionA: "Notificar de inmediato y obligar reset de contraseñas.", 
+    opcionB: "Investigar silenciosamente antes de alertar.", 
+    resultadoA: "Los usuarios valoran la reacción rápida y el daño a la marca se mitiga.", 
+    resultadoB: "Los medios se enteran antes. Es un desastre de relaciones públicas.", 
+    puntosA: 2, 
+    puntosB: -1, 
+    explicacion: "En filtraciones de datos, ser el primero en comunicar es la única forma de controlar la narrativa." 
+  },
+  { 
+    id: 22, 
+    tipo: "crisis", 
+    situacion: "Tu principal proveedor quiebra repentinamente.", 
+    opcionA: "Pausar ventas hasta encontrar una alternativa de misma calidad.", 
+    opcionB: "Comprarle temporalmente a un proveedor más caro para no parar.", 
+    resultadoA: "Tus clientes se van a la competencia durante la pausa.", 
+    resultadoB: "Pierdes margen de ganancia temporalmente, pero retienes a tus clientes.", 
+    puntosA: -1, 
+    puntosB: 2, 
+    explicacion: "Es mejor sacrificar temporalmente el margen que perder a los clientes por desabastecimiento." 
+  },
+  { 
+    id: 23, 
+    tipo: "crisis", 
+    situacion: "Un empleado clave publica un comentario profundamente ofensivo en sus redes personales.", 
+    opcionA: "Despedirlo inmediatamente para proteger la marca.", 
+    opcionB: "Darle una suspensión y publicar que están investigando.", 
+    resultadoA: "El despido corta el problema de raíz y la marca se ve fuerte moralmente.", 
+    resultadoB: "La suspensión se ve tibia y los usuarios hacen un boicot al negocio.", 
+    puntosA: 2, 
+    puntosB: -1, 
+    explicacion: "Ante crisis reputacionales vinculadas al equipo, las posturas firmes protegen los valores de la empresa." 
+  },
+  { 
+    id: 24, 
+    tipo: "crisis", 
+    situacion: "Una ola de devoluciones inunda tu tienda por un defecto de fábrica en el lote reciente.", 
+    opcionA: "Ofrecer reembolso total o reemplazo inmediato a todos.", 
+    opcionB: "Pedir que envíen fotos y analizar caso por caso para evitar fraude.", 
+    resultadoA: "Conviertes a clientes enojados en fans por el buen servicio posventa.", 
+    resultadoB: "El tiempo de análisis frustra más a los clientes, quienes dejan reseñas fatales.", 
+    puntosA: 2, 
+    puntosB: 0, 
+    explicacion: "Ante defectos masivos, la prioridad es restaurar la confianza, no minimizar las pérdidas inmediatas." 
+  },
+  { 
+    id: 25, 
+    tipo: "innovación", 
+    situacion: "Surge una nueva IA que redacta todo el contenido de tu marketing, pero suena un poco robótica.", 
+    opcionA: "Despedir a la agencia y usar la IA para ahorrar.", 
+    opcionB: "Usar la IA como asistente pero mantener toque humano en la edición.", 
+    resultadoA: "Ahorras mucho dinero pero la marca pierde identidad y conexión emocional.", 
+    resultadoB: "La productividad aumenta sin perder empatía con tus clientes.", 
+    puntosA: -1, 
+    puntosB: 2, 
+    explicacion: "La tecnología debe potenciar el talento humano, no reemplazarlo cuando se requiere empatía o identidad." 
+  },
+  { 
+    id: 26, 
+    tipo: "innovación", 
+    situacion: "Puedes implementar un programa de lealtad gamificado en tu app.", 
+    opcionA: "Implementarlo de forma sencilla (puntos por compra).", 
+    opcionB: "Hacerlo un juego complejo con avatares y misiones diarias.", 
+    resultadoA: "Los usuarios lo entienden de inmediato y las recompras aumentan.", 
+    resultadoB: "Nadie entiende cómo funciona el juego y abandonan la app.", 
+    puntosA: 2, 
+    puntosB: 0, 
+    explicacion: "La innovación en UX debe mantener la simplicidad. Exceso de complejidad genera fricción." 
+  },
+  { 
+    id: 27, 
+    tipo: "innovación", 
+    situacion: "Alguien de tu equipo junior propone una idea arriesgada que contradice tu visión del producto.", 
+    opcionA: "Darle presupuesto para que haga un prototipo pequeño.", 
+    opcionB: "Agradecer pero enfocarse en la visión planeada.", 
+    resultadoA: "El prototipo resulta en un éxito rotundo y abre un nuevo nicho.", 
+    resultadoB: "Mantienes el rumbo, pero pierdes una ventaja competitiva brutal.", 
+    puntosA: 2, 
+    puntosB: 1, 
+    explicacion: "Fomentar el intraemprendimiento y probar ideas en pequeña escala es clave para innovar." 
+  },
+  { 
+    id: 28, 
+    tipo: "innovación", 
+    situacion: "Un competidor lanza una función innovadora que tus usuarios adoran.", 
+    opcionA: "Copiarla tal cual lo más rápido posible.", 
+    opcionB: "Pensar una forma distinta de resolver el mismo problema del usuario.", 
+    resultadoA: "Siempre vas un paso atrás y pareces una simple copia.", 
+    resultadoB: "Lanzas una solución SUPERIOR y recuperas la iniciativa.", 
+    puntosA: 0, 
+    puntosB: 2, 
+    explicacion: "Reaccionar clonando rara vez supera al pionero; repensar el problema genera mejor innovación." 
+  },
+  { 
+    id: 29, 
+    tipo: "riesgo", 
+    situacion: "Una corporación te amenaza con una demanda por una patente ambigua. Ir a juicio es costoso.", 
+    opcionA: "Rendirse y pagarles la regalía que exigen.", 
+    opcionB: "Pelear en la corte confiando en tu abogado.", 
+    resultadoA: "Pagas para siempre, matando la rentabilidad de tu empresa.", 
+    resultadoB: "Ganas el juicio porque la patente era abusiva y quedas libre.", 
+    puntosA: -1, 
+    puntosB: 2, 
+    explicacion: "El riesgo legal de enfrentar a un gigante a veces es la única vía para garantizar tu supervivencia." 
+  },
+  { 
+    id: 30, 
+    tipo: "riesgo", 
+    situacion: "Para poder entrar al mercado asiático, debes asociarte 50/50 con un líder local desconocido.", 
+    opcionA: "Tomar el riesgo de ceder el 50%.", 
+    opcionB: "No entrar a Asia por ahora.", 
+    resultadoA: "El socio resulta ser clave y dominas el mercado. Las ganancias explotan.", 
+    resultadoB: "Es más seguro, pero dejaste sobre la mesa el mercado más grande del mundo.", 
+    puntosA: 2, 
+    puntosB: 1, 
+    explicacion: "El acceso a mercados complejos suele justificar altos niveles de cesión temporal de capital." 
+  },
+  { 
+    id: 31, 
+    tipo: "riesgo", 
+    situacion: "Tus ventas están bajas. Sugieren hacer una campaña publicitaria muy polémica.", 
+    opcionA: "Lanzar la campaña altamente polarizante.", 
+    opcionB: "Hacer una campaña más segura y tradicional.", 
+    resultadoA: "Mitad de la gente te odia, pero tu nicho específico cuadriplica sus compras.", 
+    resultadoB: "La campaña tradicional pasa desapercibida como siempre.", 
+    puntosA: 2, 
+    puntosB: 0, 
+    explicacion: "Para marcas retadoras, polarizar es un riesgo útil: a quien no le gustes igual no te iba a comprar." 
+  },
+  { 
+    id: 32, 
+    tipo: "riesgo", 
+    situacion: "Recibes capital pero los inversores exigen triplicar las métricas de inmediato, cambiando la cultura.", 
+    opcionA: "Priorizar métricas sobre cultura a todo costo.", 
+    opcionB: "Mantener tu cultura aunque el crecimiento sea más lento.", 
+    resultadoA: "El equipo se quema, renuncian los mejores y todo colapsa.", 
+    resultadoB: "A largo plazo, el equipo talentoso construye una base sólida e indestructible.", 
+    puntosA: -1, 
+    puntosB: 2, 
+    explicacion: "Sacrificar la cultura organizacional por métricas a corto plazo es un riesgo que casi siempre sale mal." 
+  }
 ];

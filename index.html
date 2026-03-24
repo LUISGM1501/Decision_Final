@@ -91,13 +91,30 @@
                 >Tiempo para responder (segundos)</label
               >
               <div class="timer-input-row">
+                <div class="stepper timer-stepper">
+                  <button
+                    class="stepper-btn"
+                    type="button"
+                    aria-label="Restar segundos"
+                    onclick="Config.decrementTimer()"
+                  >
+                    −
+                  </button>
+                  <span id="timerSettingDisplay" class="stepper-value">
+                    20 s
+                  </span>
+                  <button
+                    class="stepper-btn"
+                    type="button"
+                    aria-label="Sumar segundos"
+                    onclick="Config.incrementTimer()"
+                  >
+                    +
+                  </button>
+                </div>
                 <input
-                  type="number"
+                  type="hidden"
                   id="questionTimerSetting"
-                  class="timer-input"
-                  min="5"
-                  max="90"
-                  step="1"
                   value="20"
                 />
                 <span class="field-hint">Entre 5 y 90 segundos por carta.</span>

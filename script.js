@@ -79,6 +79,9 @@ const App = {
    ═══════════════════════════════════════════ */
 const Config = {
   _count: 2,
+  _timer: DEFAULT_QUESTION_TIME_LIMIT,
+  TIMER_MIN: 5,
+  TIMER_MAX: 90,
 
   get count() {
     return this._count;
@@ -119,6 +122,31 @@ const Config = {
       container.appendChild(row);
     }
     document.getElementById("configError").textContent = "";
+    this.updateTimerUI();
+  },
+
+  setTimer(value) {
+    const clamped = Math.min(
+      this.TIMER_MAX,
+      Math.max(this.TIMER_MIN, Math.round(Number(value) || this._timer)),
+    );
+    this._timer = clamped;
+    this.updateTimerUI();
+  },
+
+  incrementTimer() {
+    this.setTimer(this._timer + 1);
+  },
+
+  decrementTimer() {
+    this.setTimer(this._timer - 1);
+  },
+
+  updateTimerUI() {
+    const hidden = document.getElementById("questionTimerSetting");
+    const display = document.getElementById("timerSettingDisplay");
+    if (hidden) hidden.value = this._timer;
+    if (display) display.textContent = `${this._timer} s`;
   },
 
   startGame() {
@@ -165,6 +193,8 @@ const Config = {
       ),
     );
     questionTimeLimit = sanitizedTime;
+    this._timer = sanitizedTime;
+    this.updateTimerUI();
     if (timerInput) timerInput.value = sanitizedTime;
 
     players = names.map((name, i) => ({

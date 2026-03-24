@@ -1,364 +1,498 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Decisión Final — Juego de decisiones, riesgo e innovación</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <div id="app">
-            <!-- ═══════════════════════════════════════
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decisión Final — Juego de decisiones, riesgo e innovación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ═══════════════════════════════════════
        PANTALLA 1: INICIO
        ═══════════════════════════════════════ -->
-            <section id="screen-inicio" class="screen active">
-                <div class="inicio-container">
-                    <div class="inicio-badge">Desarrollo de Emprendedores</div>
-                    <h1 class="inicio-title">
-                        <span class="title-line">Decisión</span>
-                        <span class="title-line accent">Final</span>
-                    </h1>
-                    <p class="inicio-sub">Decisiones · Riesgo · Innovación</p>
-                    <div class="inicio-cards-preview">
-                        <span class="mini-badge mini-oportunidad"
-                            >Oportunidad</span
-                        >
-                        <span class="mini-badge mini-crisis">Crisis</span>
-                        <span class="mini-badge mini-innovacion"
-                            >Innovación</span
-                        >
-                        <span class="mini-badge mini-riesgo">Riesgo</span>
-                    </div>
-                    <div class="inicio-actions">
-                        <button
-                            class="btn btn-primary btn-lg"
-                            onclick="App.showScreen('config')"
-                        >
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <polygon points="5 3 19 12 5 21 5 3" />
-                            </svg>
-                            Jugar
-                        </button>
-                        <button
-                            class="btn btn-outline"
-                            onclick="App.showScreen('reglas')"
-                        >
-                            Ver reglas
-                        </button>
-                        <button
-                            class="btn btn-ghost btn-sm"
-                            onclick="App.openCredits()"
-                        >
-                            Créditos del equipo
-                        </button>
-                    </div>
-                </div>
-            </section>
+      <section id="screen-inicio" class="screen active">
+        <div class="inicio-container">
+          <div class="inicio-badge">Desarrollo de Emprendedores</div>
+          <h1 class="inicio-title">
+            <span class="title-line">Decisión</span>
+            <span class="title-line accent">Final</span>
+          </h1>
+          <p class="inicio-sub">Decisiones · Riesgo · Innovación</p>
+          <div class="inicio-cards-preview">
+            <span class="mini-badge mini-oportunidad">Oportunidad</span>
+            <span class="mini-badge mini-crisis">Crisis</span>
+            <span class="mini-badge mini-innovacion">Innovación</span>
+            <span class="mini-badge mini-riesgo">Riesgo</span>
+          </div>
+          <div class="inicio-actions">
+            <button
+              class="btn btn-primary btn-lg"
+              onclick="App.showScreen('config')"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+              Jugar
+            </button>
+            <button class="btn btn-outline" onclick="App.showScreen('reglas')">
+              Ver reglas
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="App.openCredits()">
+              Créditos del equipo
+            </button>
+          </div>
+        </div>
+      </section>
 
-            <!-- ═══════════════════════════════════════
+      <!-- ═══════════════════════════════════════
        PANTALLA 2: CONFIGURACIÓN
        ═══════════════════════════════════════ -->
-            <section id="screen-config" class="screen">
-                <div class="screen-narrow">
-                    <button class="btn-back" onclick="App.showScreen('inicio')">
-                        ← Volver
-                    </button>
-                    <h2 class="section-title">Configurar Partida</h2>
-                    <div class="card">
-                        <div class="config-field">
-                            <label for="playerCount"
-                                >Cantidad de jugadores</label
-                            >
-                            <div class="stepper">
-                                <button
-                                    class="stepper-btn"
-                                    onclick="Config.decrement()"
-                                >
-                                    −
-                                </button>
-                                <span
-                                    id="playerCountDisplay"
-                                    class="stepper-value"
-                                    >2</span
-                                >
-                                <button
-                                    class="stepper-btn"
-                                    onclick="Config.increment()"
-                                >
-                                    +
-                                </button>
-                            </div>
-                            <input type="hidden" id="playerCount" value="2" />
-                        </div>
+      <section id="screen-config" class="screen">
+        <div class="screen-narrow">
+          <button class="btn-back" onclick="App.showScreen('inicio')">
+            ← Volver
+          </button>
+          <h2 class="section-title">Configurar Partida</h2>
+          <div class="card">
+            <div class="config-field">
+              <label for="playerCount">Cantidad de jugadores</label>
+              <div class="stepper">
+                <button class="stepper-btn" onclick="Config.decrement()">
+                  −
+                </button>
+                <span id="playerCountDisplay" class="stepper-value">2</span>
+                <button class="stepper-btn" onclick="Config.increment()">
+                  +
+                </button>
+              </div>
+              <input type="hidden" id="playerCount" value="2" />
+            </div>
 
-                        <div id="playerInputs" class="player-inputs"></div>
+            <div id="playerInputs" class="player-inputs"></div>
 
-                        <div
-                            id="configError"
-                            class="error-msg"
-                            role="alert"
-                        ></div>
-
-                        <button
-                            class="btn btn-primary btn-block"
-                            onclick="Config.startGame()"
-                        >
-                            Comenzar Partida →
-                        </button>
-                    </div>
+            <div class="deck-manager">
+              <div class="deck-manager-head">
+                <div>
+                  <h3>Banco de preguntas</h3>
+                  <p>Agregá o eliminá cartas antes de comenzar la partida.</p>
                 </div>
-            </section>
+                <div class="deck-manager-actions">
+                  <span id="deckCountBadge" class="deck-count-badge"
+                    >0 cartas</span
+                  >
+                  <button
+                    id="deckToggleBtn"
+                    type="button"
+                    class="deck-toggle collapsed"
+                    aria-expanded="false"
+                    aria-controls="deckPanel"
+                    onclick="DeckManager.togglePanel()"
+                  >
+                    <span id="deckToggleIcon" class="deck-toggle-icon">▾</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline"
+                    onclick="DeckManager.reset()"
+                  >
+                    Restablecer mazo
+                  </button>
+                </div>
+              </div>
 
-            <!-- ═══════════════════════════════════════
+              <div id="deckPanel" class="deck-panel collapsed">
+                <div id="deckStatus" class="deck-status">Listo para jugar.</div>
+                <div id="deckList" class="deck-list"></div>
+
+                <form id="deckForm" class="deck-form">
+                  <div class="deck-form-grid">
+                    <label>
+                      Tipo de carta
+                      <select id="deckType" name="deckType">
+                        <option value="oportunidad">Oportunidad</option>
+                        <option value="crisis">Crisis</option>
+                        <option value="innovación">Innovación</option>
+                        <option value="riesgo">Riesgo</option>
+                      </select>
+                    </label>
+                    <label>
+                      Puntos opción A
+                      <select id="deckPtsA" name="deckPtsA">
+                        <option value="2">+2</option>
+                        <option value="1">+1</option>
+                        <option value="0">0</option>
+                        <option value="-1">-1</option>
+                      </select>
+                    </label>
+                    <label>
+                      Puntos opción B
+                      <select id="deckPtsB" name="deckPtsB">
+                        <option value="2">+2</option>
+                        <option value="1">+1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                      </select>
+                    </label>
+                    <label>
+                      Situación
+                      <textarea
+                        id="deckSituation"
+                        name="deckSituation"
+                        rows="2"
+                        placeholder="Describe la situación a resolver"
+                      ></textarea>
+                    </label>
+                    <label>
+                      Opción A
+                      <textarea
+                        id="deckOptionA"
+                        name="deckOptionA"
+                        rows="2"
+                        placeholder="¿Qué propone la opción A?"
+                      ></textarea>
+                    </label>
+                    <label>
+                      Opción B
+                      <textarea
+                        id="deckOptionB"
+                        name="deckOptionB"
+                        rows="2"
+                        placeholder="¿Qué propone la opción B?"
+                      ></textarea>
+                    </label>
+                    <label>
+                      Resultado A
+                      <textarea
+                        id="deckResultA"
+                        name="deckResultA"
+                        rows="2"
+                        placeholder="Describe el desenlace de elegir A"
+                      ></textarea>
+                    </label>
+                    <label>
+                      Resultado B
+                      <textarea
+                        id="deckResultB"
+                        name="deckResultB"
+                        rows="2"
+                        placeholder="Describe el desenlace de elegir B"
+                      ></textarea>
+                    </label>
+                    <label class="deck-form-full">
+                      Explicación
+                      <textarea
+                        id="deckExplanation"
+                        name="deckExplanation"
+                        rows="2"
+                        placeholder="¿Por qué esta es la mejor decisión?"
+                      ></textarea>
+                    </label>
+                  </div>
+                  <div class="deck-form-actions">
+                    <div id="deckFormError" class="error-msg"></div>
+                    <button type="submit" class="btn btn-accent btn-sm">
+                      Agregar pregunta
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div id="configError" class="error-msg" role="alert"></div>
+
+            <button
+              class="btn btn-primary btn-block"
+              onclick="Config.startGame()"
+            >
+              Comenzar Partida →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
        PANTALLA 3: REGLAS
        ═══════════════════════════════════════ -->
-            <section id="screen-reglas" class="screen">
-                <div class="screen-narrow">
-                    <button class="btn-back" onclick="App.showScreen('inicio')">
-                        ← Volver
-                    </button>
-                    <h2 class="section-title">Reglas del Juego</h2>
+      <section id="screen-reglas" class="screen">
+        <div class="screen-narrow">
+          <button class="btn-back" onclick="App.showScreen('inicio')">
+            ← Volver
+          </button>
+          <h2 class="section-title">Reglas del Juego</h2>
 
-                    <div class="rules-grid">
-                        <div class="rule-card">
-                            <div class="rule-icon">🎯</div>
-                            <h3>Objetivo</h3>
-                            <p>
-                                Acumular la mayor cantidad de puntos tomando las
-                                mejores decisiones de negocio durante 10 rondas.
-                            </p>
-                        </div>
-                        <div class="rule-card">
-                            <div class="rule-icon">🃏</div>
-                            <h3>Rondas</h3>
-                            <p>
-                                Cada ronda presenta una situación de tipo
-                                oportunidad, crisis, innovación o riesgo con dos
-                                opciones posibles.
-                            </p>
-                        </div>
-                        <div class="rule-card">
-                            <div class="rule-icon">🤔</div>
-                            <h3>Decisiones</h3>
-                            <p>
-                                Todos los jugadores eligen A o B
-                                simultáneamente. No se puede revelar hasta que
-                                todos decidan.
-                            </p>
-                        </div>
-                        <div class="rule-card">
-                            <div class="rule-icon">⭐</div>
-                            <h3>Puntuación</h3>
-                            <p>
-                                Óptima = <strong>+2 pts</strong>, aceptable =
-                                <strong>+1</strong>, neutra =
-                                <strong>0</strong>, errónea =
-                                <strong>−1</strong>. Mínimo siempre es 0.
-                            </p>
-                        </div>
-                        <div class="rule-card">
-                            <div class="rule-icon">🏆</div>
-                            <h3>Victoria</h3>
-                            <p>
-                                Gana quien tenga más puntos. Desempate: más
-                                decisiones óptimas; luego, quién acertó la
-                                última crisis.
-                            </p>
-                        </div>
-                        <div class="rule-card">
-                            <div class="rule-icon">👥</div>
-                            <h3>Jugadores</h3>
-                            <p>
-                                De 2 a 6 jugadores. Se juega en una sola
-                                pantalla, cada quien elige su opción desde su
-                                panel.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          <div class="rules-grid">
+            <div class="rule-card">
+              <div class="rule-icon">🎯</div>
+              <h3>Objetivo</h3>
+              <p>
+                Acumular la mayor cantidad de puntos tomando las mejores
+                decisiones de negocio durante 10 rondas.
+              </p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon">🃏</div>
+              <h3>Rondas</h3>
+              <p>
+                Cada ronda presenta una situación de tipo oportunidad, crisis,
+                innovación o riesgo con dos opciones posibles.
+              </p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon">🤔</div>
+              <h3>Decisiones</h3>
+              <p>
+                Todos los jugadores eligen A o B simultáneamente. No se puede
+                revelar hasta que todos decidan.
+              </p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon">⭐</div>
+              <h3>Puntuación</h3>
+              <p>
+                Óptima = <strong>+2 pts</strong>, aceptable =
+                <strong>+1</strong>, neutra = <strong>0</strong>, errónea =
+                <strong>−1</strong>. Mínimo siempre es 0.
+              </p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon">🏆</div>
+              <h3>Victoria</h3>
+              <p>
+                Gana quien tenga más puntos. Desempate: más decisiones óptimas;
+                luego, quién acertó la última crisis.
+              </p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon">👥</div>
+              <h3>Jugadores</h3>
+              <p>
+                De 2 a 6 jugadores. Se juega en una sola pantalla, cada quien
+                elige su opción desde su panel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- ═══════════════════════════════════════
+      <!-- ═══════════════════════════════════════
        PANTALLA 4: JUEGO PRINCIPAL
        ═══════════════════════════════════════ -->
-            <section id="screen-juego" class="screen">
-                <!-- Header -->
-                <div class="game-top-bar">
-                    <div class="game-logo">Decisión Final</div>
-                    <div class="round-pill">
-                        Turno de: <strong id="currentPlayerName">...</strong>
-                    </div>
+      <section id="screen-juego" class="screen">
+        <!-- Header -->
+        <div class="game-top-bar">
+          <div class="game-logo">Decisión Final</div>
+          <div class="round-pill">
+            Turno de: <strong id="currentPlayerName">...</strong>
+          </div>
+        </div>
+
+        <!-- Board Container -->
+        <div class="board-wrapper">
+          <div id="boardContainer" class="board-container"></div>
+        </div>
+        <div
+          id="cardOverlay"
+          class="card-overlay"
+          role="dialog"
+          aria-live="assertive"
+        >
+          <div class="overlay-backdrop"></div>
+          <div class="overlay-panel">
+            <div
+              id="questionTimer"
+              class="question-timer"
+              aria-live="polite"
+              style="display: none"
+            >
+              <div class="timer-icon">⏱</div>
+              <div class="question-timer-info">
+                <span class="timer-label">Tiempo restante</span>
+                <div class="timer-progress-track">
+                  <div
+                    id="questionTimerProgress"
+                    class="timer-progress-fill"
+                  ></div>
                 </div>
+              </div>
+              <span id="questionTimerValue" class="timer-value">0s</span>
+            </div>
+            <div id="situationCard" class="situation-card"></div>
+            <div class="overlay-actions">
+              <button
+                id="overlayRevealBtn"
+                class="btn btn-primary btn-lg"
+                onclick="Game.revealTurn()"
+                disabled
+              >
+                Resolver pregunta
+              </button>
+            </div>
+          </div>
+        </div>
 
-                <!-- Board Container -->
-                <div class="board-wrapper">
-                    <div id="boardContainer" class="board-container"></div>
-                </div>
+        <!-- System message -->
+        <div id="systemMsg" class="system-msg">
+          <span id="systemMsgText"
+            >Todos los jugadores deben elegir su opción</span
+          >
+        </div>
 
-                <!-- System message -->
-                <div id="systemMsg" class="system-msg">
-                    <span id="systemMsgText"
-                        >Todos los jugadores deben elegir su opción</span
-                    >
-                </div>
+        <!-- System overlay result placeholder stays below board -->
 
-                <!-- Situation card -->
-                <div id="situationCard" class="situation-card"></div>
+        <!-- Dice Panel & Player Turn Info -->
+        <div id="dicePanel" class="dice-panel">
+          <button
+            id="btnRollDice"
+            class="btn btn-accent btn-lg"
+            onclick="Game.rollDice()"
+          >
+            🎲 Tirar Dado
+          </button>
+          <div
+            id="diceResultView"
+            class="dice-result-view"
+            style="display: none"
+          >
+            <span id="diceResultNumber">?</span>
+          </div>
+        </div>
 
-                <!-- Dice Panel & Player Turn Info -->
-                <div id="dicePanel" class="dice-panel">
-                    <button id="btnRollDice" class="btn btn-accent btn-lg" onclick="Game.rollDice()">
-                        🎲 Tirar Dado
-                    </button>
-                    <div id="diceResultView" class="dice-result-view" style="display: none;">
-                        <span id="diceResultNumber">?</span>
-                    </div>
-                </div>
+        <!-- Action buttons -->
+        <div class="game-actions">
+          <button
+            id="btnReveal"
+            class="btn btn-primary btn-lg"
+            onclick="Game.revealTurn()"
+            disabled
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Revelar Resultado
+          </button>
+          <button
+            id="btnNext"
+            class="btn btn-primary btn-lg"
+            onclick="Game.nextTurn()"
+            style="display: none"
+          >
+            Siguiente Ronda →
+          </button>
+          <button
+            id="btnFinish"
+            class="btn btn-accent btn-lg"
+            onclick="Game.endGame()"
+            style="display: none"
+          >
+            🏆 Ver Resultados Finales
+          </button>
+        </div>
 
-                <!-- Action buttons -->
-                <div class="game-actions">
-                    <button
-                        id="btnReveal"
-                        class="btn btn-primary btn-lg"
-                        onclick="Game.revealRound()"
-                        disabled
-                    >
-                        <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path
-                                d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                            />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg>
-                        Revelar Resultado
-                    </button>
-                    <button
-                        id="btnNext"
-                        class="btn btn-primary btn-lg"
-                        onclick="Game.nextRound()"
-                        style="display: none"
-                    >
-                        Siguiente Ronda →
-                    </button>
-                    <button
-                        id="btnFinish"
-                        class="btn btn-accent btn-lg"
-                        onclick="Game.endGame()"
-                        style="display: none"
-                    >
-                        🏆 Ver Resultados Finales
-                    </button>
-                </div>
+        <!-- Result panel (injected after reveal) -->
+        <div id="resultPanel"></div>
 
-                <!-- Result panel (injected after reveal) -->
-                <div id="resultPanel"></div>
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+          <div class="scoreboard-header">
+            <h3>Marcador</h3>
+          </div>
+          <div id="scoreboardContent"></div>
+        </div>
+      </section>
 
-                <!-- Scoreboard -->
-                <div class="scoreboard">
-                    <div class="scoreboard-header">
-                        <h3>Marcador</h3>
-                    </div>
-                    <div id="scoreboardContent"></div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════
+      <!-- ═══════════════════════════════════════
        PANTALLA 5: RESULTADO FINAL
        ═══════════════════════════════════════ -->
-            <section id="screen-final" class="screen">
-                <div class="final-container">
-                    <div class="final-crown">🏆</div>
-                    <div class="final-label">¡Ganador!</div>
-                    <h2 id="winnerName" class="final-winner-name"></h2>
-                    <p id="winnerScore" class="final-winner-score"></p>
+      <section id="screen-final" class="screen">
+        <div class="final-container">
+          <div class="final-crown">🏆</div>
+          <div class="final-label">¡Ganador!</div>
+          <h2 id="winnerName" class="final-winner-name"></h2>
+          <p id="winnerScore" class="final-winner-score"></p>
 
-                    <div id="finalRanking" class="final-ranking"></div>
+          <div id="finalRanking" class="final-ranking"></div>
 
-                    <div id="finalAwards" class="final-awards"></div>
+          <div id="finalAwards" class="final-awards"></div>
 
-                    <div class="final-actions">
-                        <button
-                            class="btn btn-primary btn-lg"
-                            onclick="App.resetGame()"
-                        >
-                            🔄 Jugar otra vez
-                        </button>
-                        <button
-                            class="btn btn-outline"
-                            onclick="
-                                App.resetGame();
-                                App.showScreen('inicio');
-                            "
-                        >
-                            ← Volver al inicio
-                        </button>
-                    </div>
-                </div>
-            </section>
+          <div class="final-actions">
+            <button class="btn btn-primary btn-lg" onclick="App.resetGame()">
+              🔄 Jugar otra vez
+            </button>
+            <button
+              class="btn btn-outline"
+              onclick="
+                App.resetGame();
+                App.showScreen('inicio');
+              "
+            >
+              ← Volver al inicio
+            </button>
+          </div>
         </div>
+      </section>
+    </div>
 
-        <!-- ═══ MODAL: Créditos ═══ -->
-        <div
-            id="creditsModal"
-            class="modal-overlay"
-            onclick="if (event.target === this) App.closeCredits();"
+    <!-- ═══ MODAL: Créditos ═══ -->
+    <div
+      id="creditsModal"
+      class="modal-overlay"
+      onclick="if (event.target === this) App.closeCredits();"
+    >
+      <div class="modal">
+        <button class="modal-close" onclick="App.closeCredits()">✕</button>
+
+        <h2>Decisión Final</h2>
+        <p class="modal-desc">Juego de decisiones estratégicas de negocio</p>
+
+        <div class="modal-divider"></div>
+
+        <p class="modal-team">Desarrollado por el equipo:</p>
+        <ul class="modal-team-list">
+          <li>Alonso Durán</li>
+          <li>Andrés Mora</li>
+          <li>Luis Urbina</li>
+          <li>Anthony Barrantes</li>
+          <li>Deyton Hernández</li>
+        </ul>
+
+        <button
+          class="btn btn-outline btn-sm"
+          onclick="App.closeCredits()"
+          style="margin-top: 1.25rem"
         >
-            <div class="modal">
-                <button class="modal-close" onclick="App.closeCredits()">
-                    ✕
-                </button>
+          Cerrar
+        </button>
+      </div>
+    </div>
 
-                <h2>Decisión Final</h2>
-                <p class="modal-desc">
-                    Juego de decisiones estratégicas de negocio
-                </p>
-
-                <div class="modal-divider"></div>
-
-                <p class="modal-team">Desarrollado por el equipo:</p>
-                <ul class="modal-team-list">
-                    <li>Alonso Durán</li>
-                    <li>Andrés Mora</li>
-                    <li>Luis Urbina</li>
-                    <li>Anthony Barrantes</li>
-                    <li>Deyton Hernández</li>
-                </ul>
-
-                <button
-                    class="btn btn-outline btn-sm"
-                    onclick="App.closeCredits()"
-                    style="margin-top: 1.25rem"
-                >
-                    Cerrar
-                </button>
-            </div>
-        </div>
-
-        <!-- Modular JavaScript -->
-        <script src="data.js"></script>
-        <script src="script.js"></script>
-    </body>
+    <!-- Modular JavaScript -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
